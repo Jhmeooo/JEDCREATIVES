@@ -1,0 +1,338 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JED Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+      overflow: hidden; /* disables scrolling */
+    }
+     .cinematic-slide {
+      transform: translateX(-120%);
+      opacity: 0;
+      filter: blur(6px);
+    }
+
+    /* 🔹 Optional cinematic overlay */
+    .transition-overlay {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      animation: overlaySlide 0.8s ease forwards;
+      animation-delay: 0s;
+    }
+
+    @keyframes overlaySlide {
+      0% { left: 100%; }
+      100% { left: 0; }
+    }
+  </style>
+  </style>
+  </style>
+</head>
+
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="BGV6.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="PNG JED.png" alt="JED logo">
+      <span class="logo-text">/jedcreatives.com</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="nextpage.html">About</a></li>
+      <li><a href="nextpage.html#second">Projects</a></li>
+      <li><a href="nextpage.html#ninth-section">Contacts</a></li>
+    </ul>
+  </nav>
+
+  <section id="scrolling-text">
+    <div class="scroll-text-container">
+      <div class="scroll-text left">BE CREATIVE. BE PASSIONATE. BE CREATIVE. BE PASSIONATE.</div>
+      <div class="scroll-text right">PORTFOLIO. PORTFOLIO. PORTFOLIO. PORTFOLIO.</div>
+    </div>
+  </section>
+
+  <section id="center-circle">
+    <div class="glow"></div>
+    <div class="circle"></div>
+  </section>
+
+  <section id="nametag">
+    <h1 class="name">JAMEEL BELZA</h1>
+    <h1 class="name">JAMEEL BELZA</h1>
+    <h1 class="name">JAMEEL BELZA</h1>
+    <h1 class="name">JAMEEL BELZA</h1>
+  </section>
+
+  <section id="shadow-circle">
+    <div class="glowing-circle"></div>
+  </section>
+
+  <section id="image-section">
+    <img src="Jameel PNG 25.png" alt="Description" class="center-image">
+  </section>
+
+  <section id="intro-text-section">
+    <h2 class="intro-text">Hello, I'm a</h2>
+  </section>
+
+  <section id="title-text-section">
+    <h2 class="title-text">MULTI-MEDIA ARTIST</h2>
+  </section>
+
+  <section id="Sub-text-section">
+    <h2 class="Sub-text">FORMER TVB TECHBOARD</h2>
+  </section>
+
+<section id="cta-button-section">
+  <a href="nextpage.html#ninth-section">
+    <button class="cta-button">Get a project?</button>
+  </a>
+</section>
+
+  <section id="RES-button-section">
+    <a href="BELZA-CV-PORT FULL_2.pdf" download>
+      <button class="RES-button">My CV</button>
+    </a>
+  </section>
+
+  <section id="description">
+    <p>
+      JED CREATIVES embodies professionalism and delivers high-quality commissions that captivate every viewer’s eye. We value creativity and symbolism in every workpiece, fulfilling our purpose to communicate meaning through visuals and art. We create with reason, passion, and skill — crafting work that’s worthy of being shared with the world.
+    </p>
+  </section>
+
+  <img src="PS FLOAT.png" alt="Floating app" id="ps-float">
+  <img src="PR FLOAT.png" alt="Floating app" id="pr-float">
+  <img src="AE FLOAT.png" alt="Floating app" id="ae-float">
+
+  <section id="ctaa-button-section">
+    <button class="ctaa-button">Go to Portfolio! ></button>
+  </section>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const button = document.querySelector(".ctaa-button");
+      const items = document.querySelectorAll(".fade-item");
+
+      button.addEventListener("click", () => {
+        // Animate each element out with a delay
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add("cinematic-slide");
+          }, index * 150); // staggered effect
+        });
+
+        // Add overlay after animation starts
+        setTimeout(() => {
+          const overlay = document.createElement("div");
+          overlay.classList.add("transition-overlay");
+          document.body.appendChild(overlay);
+        }, 400);
+
+        // Redirect after overlay finishes
+        setTimeout(() => {
+          window.location.href = "nextpage.html";
+        }, 1500);
+      });
+    });
+  </script>
+  <div class="cursor-bubble" id="cursorBubble" aria-hidden="true">
+  <div class="cursor-core"></div>
+  <div class="cursor-ring"></div>
+</div>
+
+<style>
+  /* Basic reset for the bubble */
+  .cursor-bubble {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 48px;   /* total bubble size */
+    height: 48px;
+    pointer-events: none; /* won't block clicks */
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 9999;
+    will-change: transform, opacity;
+    mix-blend-mode: normal;
+    opacity: 0.95;
+    transition: opacity 250ms ease;
+    display: grid;
+    place-items: center;
+  }
+
+  /* inner solid dot */
+  .cursor-core {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #058bde, #053699);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* outer ring */
+  .cursor-ring {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.12);
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    transition: transform 200ms cubic-bezier(.2,.9,.2,1), opacity 200ms;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    backdrop-filter: blur(20px);
+  }
+
+  /* hovered link state (will be toggled by JS when pointer is over a link) */
+  .cursor-bubble.is-hovering .cursor-ring {
+    transform: scale(1.6);
+    border-color: rgba(0,0,0,0.18);
+    opacity: 0.95;
+  }
+
+  /* pressed state */
+  .cursor-bubble.is-pressed .cursor-core {
+    transform: scale(0.6);
+  }
+  .cursor-bubble.is-pressed .cursor-ring {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  /* hide on touch devices (optional) */
+  @media (pointer: coarse) {
+    .cursor-bubble { display: none; }
+  }
+</style>
+
+<script>
+/* ===== Cursor bubble script =====
+   - Smooth follow using lerp (linear interpolation)
+   - Reacts to link hover & mouse down/up
+   - Hides on touch devices (CSS @media above) but also stop JS updates if touch detected
+*/
+
+(() => {
+  const bubble = document.getElementById('cursorBubble');
+  if (!bubble) return;
+
+  const core = bubble.querySelector('.cursor-core');
+  const ring = bubble.querySelector('.cursor-ring');
+
+  let pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 }; // target pos
+  let pos = { x: pointer.x, y: pointer.y }; // current pos (interpolated)
+  const ease = 0.18; // lower = slower follow, higher = snappier
+
+  let rafId = null;
+  let isPointerActive = true;
+
+  // Lerp helper
+  function lerp(a, b, n) {
+    return (1 - n) * a + n * b;
+  }
+
+  // RAF loop: interpolate and set transform
+  function animate() {
+    pos.x = lerp(pos.x, pointer.x, ease);
+    pos.y = lerp(pos.y, pointer.y, ease);
+
+    // use translate3d for GPU acceleration
+    bubble.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) translate(-50%, -50%)`;
+
+    rafId = requestAnimationFrame(animate);
+  }
+
+  // Mouse move updates target pointer
+  function onMove(e) {
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+    if (!rafId) animate();
+    bubble.style.opacity = '0.98';
+  }
+
+  // Hide gracefully when leaving window
+  function onLeave() {
+    bubble.style.opacity = '0';
+  }
+
+  function onEnter() {
+    bubble.style.opacity = '0.98';
+  }
+
+  // Pressed state
+  function onDown() {
+    bubble.classList.add('is-pressed');
+  }
+  function onUp() {
+    bubble.classList.remove('is-pressed');
+  }
+
+  // Hover state for interactive elements - scale ring
+  function addHoverListeners() {
+    // consider these selectors as "interactive" - tweak as needed
+    const hoverables = document.querySelectorAll('a, button, .cta, input, label');
+
+    hoverables.forEach(el => {
+      el.addEventListener('mouseenter', () => bubble.classList.add('is-hovering'));
+      el.addEventListener('mouseleave', () => bubble.classList.remove('is-hovering'));
+    });
+  }
+
+  // Touch fallback: stop the animation and hide bubble
+  function onTouchStart() {
+    isPointerActive = false;
+    cancelAnimationFrame(rafId);
+    rafId = null;
+    bubble.style.display = 'none';
+    // remove mouse listeners to avoid conflicts on hybrid devices
+    window.removeEventListener('mousemove', onMove);
+    window.removeEventListener('mouseleave', onLeave);
+    window.removeEventListener('mouseenter', onEnter);
+  }
+
+  // Setup listeners
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseleave', onLeave);
+  window.addEventListener('mouseenter', onEnter);
+  window.addEventListener('mousedown', onDown);
+  window.addEventListener('mouseup', onUp);
+  window.addEventListener('touchstart', onTouchStart, { passive: true });
+
+  // init hover listeners (call once, but you can call again if you dynamically add links)
+  addHoverListeners();
+
+  // start animation loop (optional default start)
+  animate();
+
+  // Expose a simple API in case you want to toggle it later
+  window._cursorBubble = {
+    show() { bubble.style.display = 'grid'; bubble.style.opacity = '0.98'; if (!rafId) animate(); },
+    hide() { bubble.style.opacity = '0'; cancelAnimationFrame(rafId); rafId = null; bubble.style.display = 'none'; },
+    setColor(cssColor) { core.style.background = cssColor; ring.style.borderColor = cssColor; }
+  };
+})();
+</script>
+</body>
+
+<script>
+  // Redirect mobile/tablet users to offline screen
+  if (/Mobi|Android|iPhone|iPad|iPod|Tablet|Mobile/i.test(navigator.userAgent)) {
+      window.location.href = "offline.html";
+  }
+</script>
+
+</html>
